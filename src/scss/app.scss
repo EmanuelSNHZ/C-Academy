@@ -1,5 +1,9 @@
 // Base
-// @import "base/";
+@import "base/normalize";
+@import "base/variables";
+@import "base/mixins";
+@import "base/globales";
+
 
 // Layout
 @import "layout/header";

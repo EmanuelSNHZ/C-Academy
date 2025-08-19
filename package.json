@@ -1,7 +1,6 @@
 {
   "name": "c-academy_proyecto_icop",
   "version": "1.0.0",
-  "description": "Proyecto de Desarrollo de Software para ICOP Practica Profesionalizante desarrollado por Emanuel Sanchez y Franco Centurion",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,12 +9,13 @@
     "type": "git",
     "url": "git+https://github.com/EmanuelSNHZ/C-Academy.git"
   },
-  "author": "Emanuel Sanchez y Franco Centurion",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/EmanuelSNHZ/C-Academy/issues"
   },
   "homepage": "https://github.com/EmanuelSNHZ/C-Academy#readme",
+  "description": "",
   "devDependencies": {
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
