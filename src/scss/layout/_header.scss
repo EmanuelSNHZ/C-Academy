@@ -1,8 +1,29 @@
-.h1 {
-    font-family: $fuente_titulo;
-}
+.contenido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.p {
-    font-family: $fuente_cuerpo;
-    margin-left: 100px;
+    .logo {
+        font-family: $fuente_titulo;
+        font-size: 3rem;
+        color: $blanco;
+    }
+
+    .navegacion {
+        background-color: rgba($negro, 0.6);
+        color: $blanco;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        border-radius: 2rem;
+
+        a {
+            margin: 0.5rem 3rem;
+            color: $blanco;
+        }
+
+        .activo {
+            border-bottom: 2px solid $violeta;
+        }
+    }
 }
