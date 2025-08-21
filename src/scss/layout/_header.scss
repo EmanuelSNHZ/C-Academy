@@ -1,3 +1,36 @@
+// .contenido-header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     .logo {
+//         font-family: $fuente_titulo;
+//         font-size: 3rem;
+//         color: $blanco;
+//     }
+
+//     .navegacion {
+//         background-color: rgba($grisOscuro, 0.4);
+//         color: $blanco;
+//         display: flex;
+//         justify-content: space-between;
+//         padding: 0 1rem;
+//         border-radius: 2rem;
+
+//         a {
+//             margin: 0.5rem 3rem;
+//             color: $blanco;
+//         }
+
+//         .activo {
+//             border-bottom: 2px solid $violeta;
+//         }
+//     }
+    
+//     .boton-academia {
+//     }
+// }
+
 .contenido-header {
     display: flex;
     justify-content: space-between;
@@ -10,7 +43,7 @@
     }
 
     .navegacion {
-        background-color: rgba($negro, 0.6);
+        background-color: rgba($grisOscuro, 0.4);
         color: $blanco;
         display: flex;
         justify-content: space-between;
@@ -18,12 +51,27 @@
         border-radius: 2rem;
 
         a {
-            margin: 0.5rem 3rem;
+            padding: 0.5rem 2rem;
+            margin: 0 1rem;
             color: $blanco;
+            transition: background-color 0.3s ease; 
+
+            &:hover {
+                background-color: rgba($grisOscuro, 0.4);
+                color: $violeta;
+            }
         }
 
         .activo {
             border-bottom: 2px solid $violeta;
+            transition: background-color 0.3s ease; 
+
+            &:hover {
+                border-bottom: 2px solid $blanco;
+            }
         }
+    }
+    
+    .boton-academia {
     }
 }
