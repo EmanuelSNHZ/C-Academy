@@ -29,13 +29,14 @@
     text-decoration: none;
     padding: 1rem 3rem;
     text-align: center;
-    margin-top: $separacion / 2;
+    // margin-top: $separacion / 2;
     display: $display;
     transition: background-color 0.2s ease-in-out;
     border: none;
+    border-radius: 1rem ;
 
     &:hover {
-        background-color: darken($bgcolor, 5);
+        background-color: darken($violeta_oscuro, 5);
         cursor: pointer;
     }
 }

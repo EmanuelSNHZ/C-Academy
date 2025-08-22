@@ -1,40 +1,26 @@
-// .contenido-header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
+.no-webp .hero {
+    background-image: url(../../resources/img/hero.png);
+}
 
-//     .logo {
-//         font-family: $fuente_titulo;
-//         font-size: 3rem;
-//         color: $blanco;
-//     }
+.webp .hero {
+    background-image: url(../../resources/img/hero.webp);
+}
 
-//     .navegacion {
-//         background-color: rgba($grisOscuro, 0.4);
-//         color: $blanco;
-//         display: flex;
-//         justify-content: space-between;
-//         padding: 0 1rem;
-//         border-radius: 2rem;
+header {
+    padding: 1rem 0 3rem 0;
 
-//         a {
-//             margin: 0.5rem 3rem;
-//             color: $blanco;
-//         }
+    &.hero {
+        background-position: center center;
+        background-size: cover;
+    }
 
-//         .activo {
-//             border-bottom: 2px solid $violeta;
-//         }
-//     }
-    
-//     .boton-academia {
-//     }
-// }
+}
 
 .contenido-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
 
     .logo {
         font-family: $fuente_titulo;
@@ -70,8 +56,5 @@
                 border-bottom: 2px solid $blanco;
             }
         }
-    }
-    
-    .boton-academia {
     }
 }
