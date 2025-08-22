@@ -1,26 +1,32 @@
-.no-webp .hero {
-    background-image: url(../../resources/img/hero.png);
+.webp .hero {
+  background-image: url('../resources/img/hero.webp');
 }
 
-.webp .hero {
-    background-image: url(../../resources/img/hero.webp);
+.no-webp .hero {
+  background-image: url('../resources/img/hero.png');
 }
+
 
 header {
-    padding: 1rem 0 3rem 0;
+    padding: .5rem;
 
     &.hero {
         background-position: center center;
         background-size: cover;
+        min-height: 70rem;
     }
-
 }
 
 .contenido-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     .logo {
         font-family: $fuente_titulo;
@@ -29,12 +35,20 @@ header {
     }
 
     .navegacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem 0;
         background-color: rgba($grisOscuro, 0.4);
         color: $blanco;
-        display: flex;
-        justify-content: space-between;
         padding: 0 1rem;
         border-radius: 2rem;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 3rem 0;
+        }
 
         a {
             padding: 0.5rem 2rem;
@@ -55,6 +69,12 @@ header {
             &:hover {
                 border-bottom: 2px solid $blanco;
             }
+        }
+    }
+
+    @include tablet {
+        .boton {
+            @include boton($violeta, inline-block)
         }
     }
 }
