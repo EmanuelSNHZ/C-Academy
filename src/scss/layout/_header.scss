@@ -21,6 +21,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     @include tablet {
         flex-direction: row;
@@ -43,6 +44,7 @@ header {
         color: $blanco;
         padding: 0 1rem;
         border-radius: 2rem;
+        min-width: 20rem;
 
         @include tablet {
             flex-direction: row;
@@ -76,5 +78,35 @@ header {
         .boton {
             @include boton($violeta, inline-block)
         }
+    }
+}
+
+.contenido-hero {
+    text-align: center;
+
+    .titulo-hero {
+        margin-bottom: 1rem;
+    }
+
+    .parrafo-hero {
+        font-size: 1.6rem;
+        margin-top: 1rem;
+    }
+
+    .boton-hero {
+        margin-top: 1rem;
+        @include boton($violeta, block);
+    }
+
+    @include tablet {
+        margin-top: 15rem;
+
+        .titulo-hero {
+            font-size: 4rem;
+        }
+
+        // .boton-hero{
+        //     @include boton($violeta, inline-block);
+        // }
     }
 }
