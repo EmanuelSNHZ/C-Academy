@@ -75,7 +75,8 @@ header {
     }
 
     .boton {
-        @include boton($violeta, inline-block);
+        @include boton($violeta);
+        display: inline-block;
     }
 }
 
@@ -93,13 +94,11 @@ header {
 
     .boton-hero {
         margin-top: 1rem;
-        @include boton($violeta, block);
-
-        & {
-            @include tablet {
-                @include boton($violeta, inline-block);
-            }
-        }
+        @include boton($violeta);
+        display: inline-flex;
+        align-items: center;
+        padding: 1rem 1rem 1rem 2rem;
+        
 
         a {
             color: $blanco;
@@ -109,6 +108,7 @@ header {
             width: 3rem;
             height: 2.6rem;
             stroke-width: 0.35rem;
+            margin-left: 1rem;
         }
     }
 
@@ -118,9 +118,5 @@ header {
         .titulo-hero {
             font-size: 4rem;
         }
-
-        // .boton-hero{
-        //     @include boton($violeta, inline-block);
-        // }
     }
 }

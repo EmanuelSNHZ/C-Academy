@@ -22,7 +22,7 @@
     grid-template-columns: repeat($columnas, 1fr);
 }
 
-@mixin boton($bgcolor, $display) {
+@mixin boton($bgcolor) {
     background-color: $bgcolor;
     color: $blanco;
     font-weight: $bold;
@@ -30,7 +30,7 @@
     padding: 1rem 3rem;
     text-align: center;
     // margin-top: $separacion / 2;
-    display: $display;
+    // display: $display;
     transition: background-color 0.2s ease-in-out;
     border: none;
     border-radius: 1rem ;
