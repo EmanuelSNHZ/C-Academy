@@ -1,0 +1,23 @@
+.contenido-main {
+    text-align: center;
+    padding: 2rem;
+
+    .titulo-main {
+    }
+
+    .cards-grid {
+        margin-bottom: 5rem;
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10rem;
+        }
+
+        .card {
+            background-color: rgba($grisOscuro, 15%);
+            border-radius: 2rem;
+            padding: 0 3rem;
+            
+        }
+    }
+}
