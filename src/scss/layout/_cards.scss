@@ -1,15 +1,14 @@
 .contenido-main {
     text-align: center;
     padding: 2rem;
-
-    .titulo-main {
-    }
-
+    
     .cards-grid {
         margin-bottom: 5rem;
+
         @include tablet {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            // grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 10rem;
         }
 
@@ -17,7 +16,34 @@
             background-color: rgba($grisOscuro, 15%);
             border-radius: 2rem;
             padding: 0 3rem;
-            
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            @include tablet {
+                margin-bottom: 0;
+            }
+
+            img {
+                width: 22rem;
+                height: 16rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+                margin: 1rem 0 1.5rem 0;
+            }
+
+            p {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                margin-top: 0;
+            }
         }
     }
 }

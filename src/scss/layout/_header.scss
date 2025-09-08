@@ -8,7 +8,7 @@
 
 
 header {
-    padding: .5rem;
+    padding: 1.5rem;
 
     &.hero {
         background-position: center center;
@@ -48,8 +48,8 @@ header {
 
         @include tablet {
             flex-direction: row;
-            justify-content: space-between;
-            margin: 3rem 0;
+            justify-content: center;
+            margin: 0 2rem;
         }
 
         a {
@@ -81,10 +81,15 @@ header {
 }
 
 .contenido-hero {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 
     .titulo-hero {
         margin-bottom: 1rem;
+        margin-top: 0;
     }
 
     .parrafo-hero {
@@ -99,7 +104,6 @@ header {
         align-items: center;
         padding: 1rem 1rem 1rem 2rem;
         
-
         a {
             color: $blanco;
         }
@@ -113,8 +117,6 @@ header {
     }
 
     @include tablet {
-        margin-top: 15rem;
-
         .titulo-hero {
             font-size: 4rem;
         }
