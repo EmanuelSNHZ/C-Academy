@@ -1,21 +1,22 @@
 {
   "name": "c-academy_proyecto_icop",
   "version": "1.0.0",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "",
+  "homepage": "https://github.com/EmanuelSNHZ/C-Academy#readme",
+  "bugs": {
+    "url": "https://github.com/EmanuelSNHZ/C-Academy/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EmanuelSNHZ/C-Academy.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EmanuelSNHZ/C-Academy/issues"
+  "author": "",
+  "type": "commonjs",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/EmanuelSNHZ/C-Academy#readme",
-  "description": "",
   "devDependencies": {
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
@@ -31,7 +32,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
-    "sass": "^1.86.0",
-    "terser": "^5.3.8"
+    "sass": "^1.86.0"
   }
 }
