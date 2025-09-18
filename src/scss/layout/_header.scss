@@ -249,10 +249,10 @@ header {
     }
 
     .navegacion {
-      display: flex; // Oculta en móviles
+      display: none; // Oculta en móviles
       flex-direction: column;
       align-items: center;
-    //   margin: 3rem 0;
+      //margin: 3rem 0;
       background-color: rgba($grisOscuro, 0.4);
       color: $blanco;
       padding: 0 1rem;
@@ -296,12 +296,21 @@ header {
 }
 
 .contenido-hero {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 60vh;
 
+  @include tablet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
   .titulo-hero {
     margin-bottom: 1rem;
     margin-top: 0;
