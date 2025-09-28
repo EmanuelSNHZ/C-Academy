@@ -9,16 +9,22 @@
 <body>
     <header>
         <div class="contenedor contenido-header">
-            <a href="index.html" class="logo">C-Academy</a>
-            <nav class="navegacion">
-                <a href="index.html">Inicio</a>
-                <a href="cursos.html" class="activo">Cursos</a>
-                <a href="nosotros.html">Nosotros</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-            <a href="#" class="boton boton-academia">Academia</a>
-        </div>
+            <div class="barra">
+                <a href="index.html" class="logo">C-Academy</a>
+                <div class="mobile-menu" aria-label="Abrir menú">
+                    <img src="build/resources/img/menu.svg" alt="Mobile menu">
+                </div>
+                <nav class="navegacion">
+                    <a href="index.html" class="activo">Inicio</a>
+                    <a href="cursos.html">Cursos</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+                <a href="#" class="boton">Academia</a>
+            </div> <!-- .barra -->
+        </div> <!-- .contenido-header -->
     </header>
     
+    <script src="build/js/bundle.min.js"></script>
 </body>
 </html>
