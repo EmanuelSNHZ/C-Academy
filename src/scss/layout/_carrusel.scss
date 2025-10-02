@@ -1,13 +1,20 @@
 .carrusel {
     overflow: hidden;
-    white-space: nowrap;
+//  white-space: nowrap;
     background-color: rgba($grisOscuro, 0.1);
     padding: 1.5rem 0;
 }
 
+.carrusel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 120s linear infinite;
+}
+
 .carrusel-logos {
-    display: inline-flex;
-    animation: scroll 20s linear infinite;
+//  display: inline-flex;
+//  animation: scroll 20s linear infinite;
+    display: flex;
 }
 
 .carrusel-logos img {
@@ -21,6 +28,6 @@
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 }
