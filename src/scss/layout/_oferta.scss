@@ -1,0 +1,58 @@
+.contenido-oferta {
+    padding: 2rem;
+    text-align: center;
+
+    p {
+        font-size: 1.6rem;
+    }
+
+    .cursos-grid {
+        margin: 0 auto;
+
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+
+        .cursos {
+            width: 35rem;
+            height: 30rem;
+            background-color: rgba($grisOscuro, 0.1);
+            border-radius: 2rem;
+
+            .cursos-logo {
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                gap: 4rem;
+                padding-top: 1rem;
+
+                img {
+                    height: 12rem;
+                    width: 12rem;
+                }
+
+                p {
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                    margin: 0;
+                }
+            }
+
+            p {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .boton {
+                @include boton($violeta);
+                display: inline-block;
+                font-weight: 400;
+            }
+
+        }
+    }
+}
