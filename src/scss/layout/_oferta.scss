@@ -8,20 +8,28 @@
 
     .cursos-grid {
         margin: 0 auto;
+        align-items: center;
+        justify-items: center;
 
         @include tablet {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(2, 35rem);
+            grid-auto-rows: 30rem;
+            gap: 6rem;
+            justify-content: center;
         }
 
 
         .cursos {
-            // width: 35rem;
-            // height: 30rem;
+            width: 35rem;
+            height: 30rem;
             background-color: rgba($grisOscuro, 0.1);
             border-radius: 2rem;
             margin: 4rem 0;
+
+            @include tablet {
+                margin: 0;
+            }
 
             .cursos-logo {
                 display: flex;
