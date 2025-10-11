@@ -7,8 +7,60 @@
 }
 
 .contenido-preguntas {
+    position: relative; // Para posicionar el ::before
     background-repeat: no-repeat;
-    background-position: center;
-    width: 100rem;
-    height: 70rem;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    overflow: hidden; // Hace que el before se salga
+
+    h2 {
+        margin: 0;
+        margin-bottom: .5rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        margin: 1rem;
+    }
+
+    // Fondo oscuro para que las letras se vean mejor
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0; // para que ocue todo el contenedor
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 0;
+    }
+
+    // Para que el texto este encima del fondo oscuro
+    * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .boton {
+        margin-top: 1.5rem;
+        @include boton($violeta);
+        display: inline-flex;
+        align-items: center;
+        padding: 1rem 1rem 1rem 2rem;
+
+        a {
+        color: $blanco;
+        }
+
+        .lucide-chevron-right {
+        width: 3rem;
+        height: 2.6rem;
+        stroke-width: 0.35rem;
+        margin-left: 1rem;
+        }
+    }
 }

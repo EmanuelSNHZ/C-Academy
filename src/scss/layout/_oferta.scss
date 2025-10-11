@@ -7,9 +7,11 @@
     }
 
     .cursos-grid {
-        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-items: center;
+        margin: 0 auto;
 
         @include tablet {
             display: grid;
@@ -25,7 +27,7 @@
             height: 30rem;
             background-color: rgba($grisOscuro, 0.1);
             border-radius: 2rem;
-            margin: 4rem 0;
+            margin: 2rem 0;
 
             @include tablet {
                 margin: 0;

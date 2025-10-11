@@ -5,6 +5,10 @@ footer {
 .contenido-footer {
     
     .footer-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @include tablet {
             display: grid;
@@ -12,6 +16,7 @@ footer {
             justify-content: space-between;
             gap: 2rem;
             justify-items: center;
+            align-items: normal;
         }
 
         h3 {
@@ -29,9 +34,13 @@ footer {
             li {
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: center;
                 gap: 1rem;
                 margin-bottom: .8rem;
+
+                @include tablet {
+                    justify-content: flex-start;
+                }
 
                 img {
                     height: 2rem;
@@ -49,9 +58,13 @@ footer {
             width: 5rem;
         }
 
-        .metodo {
-            li {
-                align-items: start;
+        .metodo ul li{
+            align-items: start;
+            justify-content: flex-start !important;
+            margin-left: 2.5rem;
+
+            @include tablet {
+                margin-left: 0;
             }
         }
         
