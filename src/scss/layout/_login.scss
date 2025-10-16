@@ -1,0 +1,58 @@
+.webp .background-login {
+    background-image: url(../../../build/resources/img/hero.webp);
+}
+
+.no-webp .background-login {
+    background-image: url(.../../../build/resources/img/hero.png);
+}
+
+.header-login {
+    background-color: rgba($grisOscuro, 0.1);
+    padding: .3rem 0;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: $blanco;
+        font-family: $fuente_titulo;
+        font-size: 3rem;
+    }
+}
+
+.background-login {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 90dvh;
+    overflow: hidden;
+    display: flex; //Flex para alinear verticalmente el login
+    align-items: center;
+
+    .login {
+        background: rgba(1, 1, 1, 0.1);
+        backdrop-filter: blur(5rem);
+        -webkit-backdrop-filter: blur(12px); // Soporte para safari
+        // border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        color: $blanco;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        width: 40rem;
+        height: 47rem;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+    }
+
+    * {
+        position: relative;
+        z-index: 1;
+    }
+}

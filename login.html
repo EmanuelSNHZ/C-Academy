@@ -7,20 +7,28 @@
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 <body>
-    <header class="contendor">
+    <header class="header-login">
         <a href="index.html">C-Academy</a>
     </header>
 
     <main class="background-login">
-        <section class="cotnenedor login">
+        <section class="contenedor login">
             <h1>Iniciar Sesión</h1>
-            <form action="" class="login-form">
-                <input type="text" name="user" id="" required>
-                <input type="password" name="password" required>
-                <button type="submit">Ingresar</button>
+            <form id="login-form" action="/login" method="POST">
+                <fieldset>
+                    <label for="username">Usuario:</label>
+                    <input type="text" name="user" id="username" required>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" required>
+
+                    <button type="submit" aria-label="Ingresar al sistema">Ingresar</button>
+                </fieldset>
             </form>
+            <p id="error-message" role="alert" aria-live="assertive"></p>
         </section>
     </main>
 
+    <script src="build/js/bundle.min.js"></script>
 </body>
 </html>

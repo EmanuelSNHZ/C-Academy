@@ -1,0 +1,23 @@
+.intro-cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: justify;
+
+    .texto-intro {
+        p {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.lista-cursos {
+        
+    .carrusel-filtros {
+        background-color: rgba($grisOscuro, 0.1);
+        width: 95rem;
+        height: 6rem;
+        margin: 10rem auto;
+    }
+}
