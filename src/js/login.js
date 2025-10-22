@@ -8,7 +8,7 @@ function viewPassword() {
     const togglePassword = document.querySelector("#togglePassword");
     const passwordInput = document.querySelector("#password");
 
-    togglePassword.addEventListener("click", () => {
+    togglePassword.addEventListener("click", () => { 
         const isPassword = passwordInput.type === "password";
         passwordInput.type = isPassword ? "text" : "password";
 
