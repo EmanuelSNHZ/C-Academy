@@ -40,3 +40,232 @@
         }
     }
 }
+
+// .definicion {
+
+//     h2 {
+//         margin: 4rem 0;
+//     }
+//     .grid-definicion {
+
+//         .mision {
+//             background-color: rgba($grisOscuro, 0.1);
+//             border-radius: 2rem;
+//             display: flex;
+//             flex-direction: column;
+//             width: 70rem;
+
+//             img {
+//                 width: auto;
+//                 height: 20rem;
+//             }
+
+//             .div-mision {
+//                 text-align: center;
+
+//                 p {
+//                     font-size: 1.6rem;
+//                     margin-left: 3rem;
+//                     margin-right: 3rem;
+//                     margin-bottom: 4rem;
+//                 }
+//             }
+//         }
+
+//         .vision {
+//             background-color: rgba($grisOscuro, 0.1);
+//             border-radius: 2rem;
+//             display: flex;
+//             flex-direction: column;
+//             width: 45rem;
+
+//             img {
+//                 width: auto;
+//                 height: 30rem;
+//             }
+
+//             .div-vision {
+//                 text-align: center;
+
+//                 p {
+//                     font-size: 1.6rem;
+//                     margin-left: 3rem;
+//                     margin-right: 3rem;
+//                     margin-bottom: 4rem;
+//                 }
+//             }
+//         }
+
+//         .valores {
+//             background-color: rgba($grisOscuro, 0.1);
+//             border-radius: 2rem;
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+
+//             @include tablet {
+//                 display: grid;
+//                 grid-template-columns: repeat(2, 1fr);
+//                 column-gap: 1rem;
+//             }
+
+//             img {
+//                 width: auto;
+//                 height: auto;
+//                 margin: 0 0 0 1rem;
+//             }
+
+//             .div-valores {
+//                 margin-bottom: 2rem;
+
+//                     ul, li {
+//                     list-style: none;
+//                     padding: 0;
+//                     margin: 0;
+//                 }
+
+//                 li {
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: start;
+//                     column-gap: 1rem;
+
+//                     img {
+//                         width: auto;
+//                         height: 4rem;
+//                     }
+
+//                     p {
+//                         font-size: 1.6rem;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.definicion {
+
+    h2 {
+        margin: 4rem 0;
+    }
+    .grid-definicion {
+        display: grid; // <-- AÑADIDO
+        gap: 2rem;     // <-- AÑADIDO (ajusta el valor si quieres)
+
+        @include tablet { // <-- AÑADIDO
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mision {
+            background-color: rgba($grisOscuro, 0.1);
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // width: 70rem; // <-- ELIMINADO
+
+            img {
+                width: auto;
+                height: 25rem;
+            }
+
+            .div-mision {
+                text-align: center;
+
+                p {
+                    font-size: 1.6rem;
+                    margin-left: 3rem;
+                    margin-right: 3rem;
+                    margin-bottom: 4rem;
+                }
+                // ... (código sin cambios)
+            }
+        }
+
+        .vision {
+            background-color: rgba($grisOscuro, 0.1);
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // width: 45rem; // <-- ELIMINADO
+
+            img {
+                width: auto;
+                height: 30rem;
+            }
+
+            .div-vision {
+                text-align: center;
+
+                p {
+                    font-size: 1.6rem;
+                    margin-left: 3rem;
+                    margin-right: 3rem;
+                    margin-bottom: 4rem;
+                }
+                // ... (código sin cambios)
+            }
+        }
+
+        .valores {
+            background-color: rgba($grisOscuro, 0.1);
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include tablet {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1rem;
+            }
+            
+            // --- AÑADIDO ---
+            // Esto hace que .valores ocupe el ancho completo en desktop
+            @include tablet {
+                grid-column: 1 / 3;
+            }
+            // --- FIN DE LO AÑADIDO ---
+
+            img {
+                width: auto;
+                height: auto;
+                margin: 0 0 0 1rem;
+                // ... (código sin cambios)
+            }
+
+            .div-valores {
+                margin-bottom: 2rem;
+
+                ul, li {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    column-gap: 1rem;
+
+                    img {
+                        width: auto;
+                        height: 4rem;
+                    }
+
+                    p {
+                        font-size: 1.6rem;
+                    }
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+                // ... (código sin cambios)
+        }
+    }
+}
