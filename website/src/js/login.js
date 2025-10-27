@@ -27,7 +27,7 @@ function handleLoginForm() {
 
     if (loginForm) {
         loginForm.addEventListener("submit", async function (event) {
-            // 1. Prevenir el envío tradicional
+            
             event.preventDefault();
 
             // Limpiar errores previos y mostrar estado de carga
@@ -35,7 +35,7 @@ function handleLoginForm() {
             submitButton.textContent = "Ingresando...";
             submitButton.disabled = true;
 
-            // 2. Recolectar los datos
+            // Recolectar los datos
             const username = document.querySelector("#username").value;
             const password = document.querySelector("#password").value;
 
@@ -46,8 +46,8 @@ function handleLoginForm() {
             }
 
             try {
-                // 3. Enviar los datos al Backend
-                const response = await fetch(loginForm.action, {
+                // Enviar los datos al Backend
+                const response = await fetch('http://127.0.0.1:5000/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -58,34 +58,27 @@ function handleLoginForm() {
                     })
                 });
 
-                // 4. Manejar la respuesta
                 if (response.ok) {
                     // Éxito (código 200-299)
                     const data = await response.json();
 
-                    // Guardamos el token. 
-                    // localStorage persiste cerrando el navegador.
-                    // sessionStorage se borra al cerrar la pestaña.
                     localStorage.setItem('authToken', data.token);
 
                     // Redirigir según el rol
                     if (data.role === 'admin') {
-                        window.location.href = '/admin/dashboard.html'; // Ruta al dashboard del admin
+                        window.location.href = '/admin/dashboard.html';
                     } else if (data.role === 'student') {
-                        window.location.href = '/alumno/dashboard.html'; // Ruta al dashboard del alumno
+                        window.location.href = '/alumno/dashboard.html';
                     } else {
-                        // Fallback por si el rol no viene
                         window.location.href = '/dashboard.html';
                     }
 
                 } else {
-                    // 5. Manejar el error
                     const errorData = await response.json();
                     mostrarError(errorData.error || "Ocurrió un error. Intenta de nuevo.");
                 }
 
             } catch (error) {
-                // Error de red o algo similar
                 console.error("Error en el fetch:", error);
                 mostrarError("No se pudo conectar con el servidor. Revisa tu conexión.");
             }
