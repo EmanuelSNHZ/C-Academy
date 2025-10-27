@@ -15,8 +15,8 @@ function viewPassword() {
 
         // Cambiar de icono con el click
         togglePassword.src = isPassword
-            ? "build/resources/img/eye-closed.svg"
-            : "build/resources/img/eye.svg";
+            ? "build/resources/img/eye.svg"
+            : "build/resources/img/eye-closed.svg"
     })
 }
 
