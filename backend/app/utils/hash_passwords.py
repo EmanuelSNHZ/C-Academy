@@ -1,25 +1,17 @@
-import mysql.connector
 import bcrypt
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-db_config = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME')
-}
+from app.app import get_db_connection  # reutilizamos tu función de conexión
 
 def hash_passwords():
-    
+    """Recorre todos los usuarios y hashea contraseñas en texto plano."""
     conn = None
     cursor = None
     try:
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor(dictionary=True)
+        conn = get_db_connection()
+        if conn is None:
+            print("❌ No se pudo conectar a la base de datos")
+            return
 
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT usuarioID, contraseña FROM Usuario")
         users = cursor.fetchall()
 
@@ -29,24 +21,27 @@ def hash_passwords():
             user_id = user['usuarioID']
             plaintext_password = user['contraseña']
 
+            # Si ya está hasheada (bcrypt empieza con $2)
             if plaintext_password.startswith('$2'):
                 print(f"Usuario {user_id} ya parece estar hasheado. Omitiendo.")
                 continue
 
             print(f"Hasheando contraseña para usuario {user_id} ({plaintext_password})...")
-            hashed_password = bcrypt.hashpw(plaintext_password.encode('utf-8'), bcrypt.gensalt())
+            hashed_password = bcrypt.hashpw(
+                plaintext_password.encode('utf-8'),
+                bcrypt.gensalt()
+            ).decode('utf-8')
 
             update_query = "UPDATE Usuario SET contraseña = %s WHERE usuarioID = %s"
-            cursor.execute(update_query, (hashed_password.decode('utf-8'), user_id))
+            cursor.execute(update_query, (hashed_password, user_id))
         
         conn.commit()
-        print("\n¡Contraseñas actualizadas exitosamente!")
-        print("Ahora la contraseña 'admin123' se ve como: ", hashed_password.decode('utf-8'))
+        print("\n✅ ¡Contraseñas actualizadas exitosamente!")
 
-    except mysql.connector.Error as err:
-        print(f"Error de base de datos: {err}")
+    except Exception as err:
+        print(f"Error: {err}")
         if conn:
-            conn.rollback() 
+            conn.rollback()
     finally:
         if cursor:
             cursor.close()
