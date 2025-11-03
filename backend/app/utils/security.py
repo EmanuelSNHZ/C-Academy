@@ -3,7 +3,8 @@ import jwt
 import bcrypt
 from functools import wraps
 from flask import request, jsonify
-from app.app import SECRET_KEY
+# from app.app import SECRET_KEY
+from flask import current_app
 
 # --- Contraseñas ---
 def hash_password(plaintext: str) -> str:
@@ -18,20 +19,27 @@ def verify_password(plaintext: str, hashed: str) -> bool:
 def create_token(sub: int, role: str) -> str:
     """Crea un JWT con ID de usuario y rol."""
     payload = {
-        'sub': sub,
+        'sub': str(sub),
         'role': role,
         'iat': datetime.datetime.utcnow(),
         'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
     }
-    return jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+    secret = current_app.config['JWT_SECRET_KEY']
+    return jwt.encode(payload, secret, algorithm="HS256")
 
 def decode_token(token: str):
     """Decodifica un JWT y devuelve el payload o None si es inválido/expirado."""
     try:
-        return jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-    except jwt.ExpiredSignatureError:
+        secret = current_app.config['JWT_SECRET_KEY']
+        return jwt.decode(token, secret, algorithms=["HS256"])
+    except jwt.ExpiredSignatureError as e:
+        print(f"DEBUG (Token Expirado): {e}")  # <--- LÍNEA NUEVA
         return None
-    except jwt.InvalidTokenError:
+    except jwt.InvalidTokenError as e:
+        print(f"DEBUG (Token Inválido): {e}") # <--- LÍNEA NUEVA
+        return None
+    except Exception as e:
+        print(f"DEBUG (Error Inesperado): {e}") # <--- LÍNEA NUEVA
         return None
 
 # --- Decoradores ---

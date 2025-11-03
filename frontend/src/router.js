@@ -21,4 +21,25 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("authToken")
+  const role = localStorage.getItem("role")
+
+  if (!token && to.path !== "/") {
+    // Si no hay token y no está en login → redirigir
+    return next("/")
+  }
+
+  if (to.path.startsWith("/admin") && role !== "admin") {
+    return next("/")
+  }
+
+  if (to.path.startsWith("/student") && role !== "student") {
+    return next("/")
+  }
+
+  next()
+})
+
+
 export default router

@@ -3,11 +3,12 @@ import mysql.connector
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
+from flask_jwt_extended import JWTManager  # <--- 1. IMPORTADO
 
 # Cargar variables de entorno
 load_dotenv()
 
-# Configuración de la DB
+# Configuración de la DB (Esto estaba bien)
 db_config = {
     'host': os.getenv('DB_HOST'),
     'user': os.getenv('DB_USER'),
@@ -15,12 +16,13 @@ db_config = {
     'database': os.getenv('DB_NAME')
 }
 
-# Clave secreta para JWT
-SECRET_KEY = os.getenv('SECRET_KEY')
+# Clave secreta para JWT (La moveremos adentro de create_app)
+# SECRET_KEY = os.getenv('SECRET_KEY') # <--- Ya no la necesitamos aquí
 
 
 def get_db_connection():
     """Devuelve una conexión a la base de datos o None si falla."""
+    # (Esta función estaba bien)
     try:
         conn = mysql.connector.connect(**db_config)
         return conn
@@ -34,7 +36,19 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    # Importar y registrar blueprints
+    # --- INICIO DE LA CORRECCIÓN ---
+
+    # 2. Asigna la clave secreta del .env a la configuración de Flask
+    # La librería buscará esta variable específica: 'JWT_SECRET_KEY'
+    app.config['JWT_SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+    # 3. Inicializa JWTManager con la aplicación Flask
+    jwt = JWTManager(app)
+    
+    # --- FIN DE LA CORRECCIÓN ---
+
+
+    # Importar y registrar blueprints (Esto estaba bien)
     from app.routes.auth import bp as auth_bp
     from app.routes.admin import bp as admin_bp
     from app.routes.student import bp as student_bp
@@ -43,7 +57,7 @@ def create_app():
     app.register_blueprint(admin_bp)
     app.register_blueprint(student_bp)
 
-    # Ruta de prueba de conexión a la DB
+    # Ruta de prueba de conexión a la DB (Esto estaba bien)
     @app.route('/ping-db')
     def ping_db():
         conn = get_db_connection()
