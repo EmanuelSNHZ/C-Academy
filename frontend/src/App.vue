@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view /> <!-- Aquí se renderiza Login, Admin o Student -->
+    <router-view /> <!-- aca se renderiza Login, Admin o Student -->
   </div>
 </template>
 

@@ -227,7 +227,7 @@ export default {
     }
 
     p {
-      color: #d32f2f;
+      color: $rojo;
       text-align: center;
       margin: 0 auto;
       font-size: 1.5rem;

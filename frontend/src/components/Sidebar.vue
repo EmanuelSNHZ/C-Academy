@@ -67,8 +67,9 @@ defineProps({
 })
 
 function logout() {
-  alert('Cerrando Sesión...');
-  router.push('/login')
+  localStorage.removeItem('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3NjIyNTE4ODksImV4cCI6MTc2MjMzODI4OX0.2deoGHhvs6fPlEwuhUSSiOhE6b5KK9G8L99kTZr2G3I')
+  localStorage.removeItem('student')
+  router.push('/')
 }
 
 </script>
@@ -126,7 +127,7 @@ function logout() {
     a {
       display: flex;
       align-items: center;
-      color: $grisClaro;
+      color: $blanco;
       text-decoration: none;
       height: 5rem;
       padding: 0 2.5rem;
@@ -138,14 +139,14 @@ function logout() {
       }
 
       &:hover {
-        background: #FFFFFF1a;
-        color: $blanco;
+        background: $gris;
       }
 
       &.router-link-active {
         background: $gris;
         color: $blanco !important;
         font-weight: 600;
+        border-bottom: 2px solid $violeta;
       }
     }
   }
@@ -156,7 +157,7 @@ function logout() {
     a {
       display: flex;
       align-items: center;
-      color: $grisClaro;
+      color: $blanco;
       text-decoration: none;
       height: 5rem;
       padding: 0 2.5rem;
@@ -167,6 +168,7 @@ function logout() {
       }
 
       &:hover {
+        background: $gris;
         color: $rojo;
       }
     }
